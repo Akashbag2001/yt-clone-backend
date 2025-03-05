@@ -73,16 +73,15 @@ userSchema.methids.generateAccessToken = function () {
   );
 };
 userSchema.methids.generateRefreshToken = function () {
-    jwt.sign(
-        {
-          _id: this._id,
-         
-        },
-        process.env.ACCESS_REFRESH_SECRET,
-        {
-          expiresIn: process.env.ACCESS_REFRESH_EXPIRY,
-        }
-      );
+  jwt.sign(
+    {
+      _id: this._id,
+    },
+    process.env.ACCESS_REFRESH_SECRET,
+    {
+      expiresIn: process.env.ACCESS_REFRESH_EXPIRY,
+    }
+  );
 };
 
 export const User = mongoose.model("User", userSchema);
