@@ -4,7 +4,7 @@ import express from "express";
 dotenv.config({
   path: "./env",
 });
-const connectionPort = process.env.PORT;
+const connectionPort = process.env.PORT || 5000;
 const app = express();
 connectDB()
   .then(() => {
@@ -12,7 +12,7 @@ connectDB()
       console.log("Error: ", error);
       throw error;
     });
-    app.listen(connectionPort || 8000, () => {
+    app.listen(connectionPort || 5000, () => {
       console.log(`Sever is running at Port: ${connectionPort}`);
     });
   })
